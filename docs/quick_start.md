@@ -1,6 +1,6 @@
 # Create new app
 
-###설치
+### 설치
 ```
 npm install -g create-react-app
 create-react-app my-app
@@ -9,7 +9,7 @@ cd my-app
 npm start
 ```
 
-###설치 후
+### 설치 후
 ```
 Success! Created my-app at /Users/bsscco/my-app
 Inside that directory, you can run several commands:
@@ -51,8 +51,5 @@ Inside that directory, you can run several commands:
 
 ### 엘리먼트에 대해서
 - React 엘리먼트는 DOM 객체와 달리 순수 Javascript 객체이기 때문에 생성비용이 싸다.
-- React 엘리먼트의 속성이나 자식 엘리먼트를 변경하기 위해선 오직 ReactDOM.render()를 다시 호출하는 수밖에 없다.
-	React 엘리먼트는 영화의 한 프레임과 같기 때문이다. immutable이다.
-	
-실제로 
-    Removes this tool and copies build dependencies, configuration files오
+- React 엘리먼트의 속성이나 자식 엘리먼트를 변경하기 위해선 오직 ReactDOM.render()를 다시 호출하는 수밖에 없다. React 엘리먼트는 영화의 한 프레임과 같기 때문이다. immutable이다.
+- 하지만 대부분의 React app에선 ReactDOM.render()를 한 번만 호출한다. 그게 가능한 이유는 이후 배울 stateful compoments가 있기 때문이다.
