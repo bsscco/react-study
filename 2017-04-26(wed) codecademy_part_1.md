@@ -4,7 +4,7 @@
 - 큰 앱도 잘 돌아간다.
 
 # JSX
-## 문법상의 주의사항
+### 문법상의 주의사항
 
 - class속성은 className으로 써야 한다.
 	- 이유
@@ -30,16 +30,16 @@
 		- 항목 간 key속성의 값은 서로 unique 해야 하먀, sibling 항목 간에만 unique 하면 된다.
 
 # Component
-## 무엇인가?
+### 무엇인가?
 - 하나의 작업에 책임을 지는 재사용 가능한 작은 코드 덩어리. 보통 HTML 태그를 그리는 작업을 한다.
 
-## 준비
+### 준비
 - ```var React = require('react');```
 	- React는 리액트를 사용하기 위한 메소드들을 담고 있는 객체이다.
 - ```var ReactDOM = require('react-dom');```
 	- ReactDOM은 DOM과 상호작용한다.
 	
-## 컴포넌트 만들기
+### 컴포넌트 만들기
 - React.createElement()와 React.createClass()의 차이
 	- HTML 태그 하나를 만다는 것 / React 컴포넌트를 만드는 것
 
@@ -53,6 +53,3 @@
 		}
 	})
 	```
-	
-	# Component and JSX
-	##
