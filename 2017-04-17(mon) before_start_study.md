@@ -1,11 +1,10 @@
 # React?
 - UI를 효과적으로 만들 수 있게 해주는 Javascript 라이브러리
 - React로 만들어진 컴포넌트는 데이터가 바뀌었을 때 효과적으로 갱신하고 다시 렌더링 합니다.
+- Javascript 라이브러리?
+	- Javascript언어로 작성된 유용한 기능들의 묶음.
 
-### Javascript 라이브러리?
-- Javascript언어로 작성된 유용한 기능들의 묶음.
-
-# 이번 스터디에서 나는?
+# 이번 스터디
 - 일시 : 4.17(월)~
 - 기간 : 4주 이상, 매주 월, 목
 - 시간 : 저녁 8~10시
@@ -15,11 +14,12 @@
 		- function, object 등 프로그래밍언어 기초 개념을 알아야 한다.
 		- 확장자 .html로 끝나는 파일이 뭔지는 알아야 한다.
 - 스터디 자료
-	- 자바스크립트 영상 강의 : http://tryhelloworld.co.kr/courses/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8
-	- 프론트엔드 영상 강의 : http://tryhelloworld.co.kr/courses/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%99%80-%EC%9B%B9-%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C
-	- 공홈 튜토리얼 https://facebook.github.io/react/tutorial/tutorial.html
-	- 공홈 닥스 https://facebook.github.io/react/docs/hello-world.html
-	- 한글 영상 강의 https://www.inflearn.com/course/react-%EA%B0%95%EC%A2%8C-velopert/?action=curriculum
+	- 자바스크립트 영상 강의 : [tryhelloworld](http://tryhelloworld.co.kr/courses/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8), [오픈튜도리얼스](https://opentutorials.org/course/743)
+	
+	- 프론트엔드 영상 강의 : [tryhelloworld](http://tryhelloworld.co.kr/courses/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%99%80-%EC%9B%B9-%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C), [코드카데미](https://www.codecademy.com/learn/react-101)
+	- [공홈 튜토리얼](https://facebook.github.io/react/tutorial/tutorial.html)
+	- [공홈 닥스](https://facebook.github.io/react/docs/hello-world.html)
+	- 한글 영상 강의 [인프런](https://www.inflearn.com/course/react-%EA%B0%95%EC%A2%8C-velopert/?action=curriculum)
 - 개인 목적(동기) : 전자상거래 서비스를 전체적으로 파악하고 싶다. 텐바이텐은 전자상거래 서비스이면서 UI가 단순하고 간결하다. 이번 스터디를 통해 리엑트로 프론트엔드를 짜고, 스터디 이후엔 백엔드를 공부하여 텐바이텐-like 전자상거래 서비스를 만들어보고 싶다.
 - 개인 목표 : 텐바이텐-like 웹사이트(백엔드 없이 프론트엔드만) 제작 
 
