@@ -72,6 +72,11 @@
 
 ### 컴포넌트에 속성 넘기기
 - ```<MyComponent foo="bar" />```
+
 - 왜 속성을 넘기나요?
 	- 컴포넌트 객체마다 UI를 다르게 만들 수 있다. 컴포넌트 안에 고정된 값을 담아놓으면 컴포넌트 객체들은 모두 같은 UI를 가진다. 부모 컴포넌트로부터 속성을 넘겨받아 사용하면 속성에 따라 다른 UI를 가지게 할 수 있다.
-	
+
+- props 네이밍 컨벤션
+	- 이벤트 핸들러는 handle*EventType*으로 짓는다. ex) handleClick, handleKeyPress
+	- prop은 on*EventType*으로 짓는다. ex) onClick, onPress
+- ㅇ
