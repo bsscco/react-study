@@ -33,7 +33,7 @@
 ### 무엇인가?
 - 하나의 작업에 책임을 지는 재사용 가능한 작은 코드 덩어리. 보통 HTML 태그를 그리는 작업을 한다.
 
-### 준비
+### 컴포넌트 만들 준비
 - ```var React = require('react');```
 	- React는 리액트를 사용하기 위한 메소드들을 담고 있는 객체이다.
 - ```var ReactDOM = require('react-dom');```
@@ -54,17 +54,20 @@
 	})
 	```
 	
-### 컴포넌트 모듈화
+### 컴포넌트 모듈화하기
 - 다른 js파일에 작성해서 require로 불러오자.
-	- ```Var NavBar = require('./NavBar.js');```
-- js파일에서 필요한 변수만 불러오고 싶다면,
 	- in NavBar.js
-	``` 
+	```javascript
 	var NavBar = React.createClass(...);
 	module.exports = NavBar;
 	```
 	- in NavBarContainer.js
-	```
+	```javascript
 	Var NavBar = require('./NavBar.js'.NavBar);
 	```
+	
+# props
+### 무엇인가?
+- 컴포넌트 정보를 고장하는 객체
 
+###
