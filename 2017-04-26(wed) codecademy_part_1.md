@@ -1,4 +1,4 @@
-### 자랑을 늘어놓는다.
+### 시작부터 칭찬을 늘어놓는다.
 - 매우 빠르다.
 - 모듈화가 잘 된다.
 - 큰 앱도 잘 돌아간다.
@@ -47,9 +47,24 @@
 	- 생성된 클래스를 받는 변수의 이름은 대문자로 시작해야 한다.
 	- 오직 하나의 인자만 받는데 그것은 Javascript 객체여야 한다. 
 	```javascript
-	var Hello = Rreact.createClass({
+	var NavBar = Rreact.createClass({
 		render: function () {
 			return <h1>Hello world</h1>;
 		}
 	})
 	```
+	
+### 컴포넌트 모듈화
+- 다른 js파일에 작성해서 require로 불러오자.
+	- ```Var NavBar = require('./NavBar.js');```
+- js파일에서 필요한 변수만 불러오고 싶다면,
+	- in NavBar.js
+	``` 
+	var NavBar = React.createClass(...);
+	module.exports = NavBar;
+	```
+	- in NavBarContainer.js
+	```
+	Var NavBar = require('./NavBar.js'.NavBar);
+	```
+
