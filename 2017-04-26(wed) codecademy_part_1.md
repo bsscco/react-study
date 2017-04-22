@@ -31,9 +31,9 @@
 
 # Component
 ### 무엇인가?
-- 하나의 작업에 책임을 지는 재사용 가능한 작은 코드 덩어리. 보통 HTML 태그를 그리는 작업을 한다.
+- 하나의 작업을 책임지는 재사용 가능한 작은 코드 덩어리. 보통 HTML 태그를 그리는 작업을 한다.
 
-### 컴포넌트 만들 준비
+### 컴포넌트 만들 준비를 하자.
 - ```var React = require('react');```
 	- React는 리액트를 사용하기 위한 메소드들을 담고 있는 객체이다.
 - ```var ReactDOM = require('react-dom');```
@@ -68,7 +68,8 @@
 	
 # props
 ### 무엇인가?
-- 컴포넌트 정보를 고장하는 객체
+- 컴포넌트의 정보를 고정하는 객체
+- 부모 컴포넌트로부터 전달받는다.
 
 ### 컴포넌트에 속성 넘기기
 - ```<MyComponent foo="bar" />```
@@ -79,4 +80,30 @@
 - props 네이밍 컨벤션
 	- 이벤트 핸들러는 handle*EventType*으로 짓는다. ex) handleClick, handleKeyPress
 	- prop은 on*EventType*으로 짓는다. ex) onClick, onPress
-- ㅇ
+- defalt props
+	```javascript
+	getDefaultProps: function () {
+	    return{
+	      text: 'I am a text prop's default value'
+	    };
+	},
+	```
+
+- this.props.children
+	- 현재 컴포넌트의 오프닝, 클로징 태그 사이에 있는 모든 태그들이 들어있다.	
+	
+# state
+### 무엇인가?
+- props와 달리 부모 컴포넌트로부터 전달받지 않는다.
+
+### 상태값 초기화
+```javascript
+getInitialState: function () {
+    return { mood: 'I am a mood state's initial value' };
+  },
+```
+
+### 상태값 변경하기
+- ```this.setState({})```
+- ```setState()``` 호출 후에는 바로 render()가 호출된다고 생각하자. 만약 render() 안에서 setState()를 호출하면 무한 루프가 돌 것이다.
+
