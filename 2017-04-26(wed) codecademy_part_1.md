@@ -8,7 +8,7 @@
 
 - class속성은 className으로 써야 한다.
 	- 이유
-		- Javascript에선 class가 예약어이기 때문이다.
+		- JSX가 Javascript로 변환될 때 각 태그는 객체로 만들어지는데, Javascript에선 class가 예약어이기 때문이다.
 
 - ```<br>```태그와 같이 셀프 클로징은 쓸 수 없다. 항상 ```<br />```로 써주어야 한다.
 
