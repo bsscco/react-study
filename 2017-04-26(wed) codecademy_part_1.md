@@ -98,8 +98,8 @@
 ### 상태값 초기화
 ```javascript
 getInitialState: function () {
-    return { mood: 'I am a mood state's initial value' };
-  },
+	return { mood: 'I am a mood state's initial value' };
+},
 ```
 
 ### 상태값 변경하기
