@@ -47,7 +47,7 @@
 	- 생성된 클래스를 받는 변수의 이름은 대문자로 시작해야 한다.
 	- 오직 하나의 인자만 받는데 그것은 Javascript 객체여야 한다. 
 	```javascript
-	Rreact.createClass({
+	var Hello = Rreact.createClass({
 		render: function () {
 			return <h1>Hello world</h1>;
 		}
