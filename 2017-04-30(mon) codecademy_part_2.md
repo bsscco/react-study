@@ -44,3 +44,34 @@ function Friend(props) {
   return <img src={props.src} />;
 }
 ```
+
+# PropTypes
+### 무엇인가?
+- 부모 컴포넌트로부터 내려받는 props의 각 프로퍼티에 대응하는 이름과 기대하는 타입을 모아놓은 객체
+- ex
+```javascript
+var Book = React.createClass(
+  propTypes: {
+    title: React.PropTypes.string.isRequired,
+    id: React.PropTypes.number
+  },
+  render: function(){
+    return <h1>{this.props.id} {this.props.title}</h1>;
+  }
+);
+```
+### 주의사항
+- 기대하는 타입이 아니거나 isRequired인데 값이 없으면 콘솔에 경고메시지가 뜬다.
+
+### Stateless Functional 컴포넌트에서 PropTypes 쓰기
+```javascript
+function Book(props) {
+  return <h1>{this.props.id} {this.props.title}</h1>;
+}
+Book.propTypes = {
+  title: React.PropTypes.string.isRequired,
+  id: React.PropTypes.number
+};
+```
+
+# React Forms
