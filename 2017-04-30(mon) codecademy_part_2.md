@@ -33,13 +33,13 @@ var Friend = React.createClass({
   }
 });
 
-// 위 아래 코드는 서로 같습니다.
+// 위 아래 코드는 서로 같다.
 
 function Friend() {
   return <img src='https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-octopus.jpg' />;
 }
 
-// props를 사용해야 하는 경우는 아래와 같습니다.
+// props를 사용해야 하는 경우는 아래와 같다.
 function Friend(props) {
   return <img src={props.src} />;
 }
