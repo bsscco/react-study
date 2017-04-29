@@ -132,7 +132,7 @@ https://developer.mozilla.org/ko/docs/A_re-introduction_to_JavaScript
 ### props
 - 바뀌지 않는 상수 속성
 - 부모 컴포넌트에서 -> 자식 컴포넌트로 전달한다.
-- props로 컴포넌트가 셋팅되도록 만들면 컴포넌트의 재활용도가 높아진다.
+- props로 컴포넌트가 셋팅되도록 만들면 컴포넌트의 재활용도가 높아지며, 자식 컴포넌트 간에 데이터를 싱크 시킬 수 있다.
 
 ### state
 - 바뀌는 상태 속성
