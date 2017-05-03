@@ -17,7 +17,7 @@
 - ```var styles = require('./styles');```
 
 ### 주의사항
-- React에서는 style 이름도 camelCase로 생각해야 한다. 
+- React에서는 style 이름도 camelCase로 생각해야 한다. 객체이기 때문이다.
 
 # React 컴포넌트 프로그래밍 패턴 2
 ### Presentational 컴포넌트로부터 Container(Controller) 컴포넌트를 분리하기
