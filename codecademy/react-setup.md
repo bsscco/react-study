@@ -31,7 +31,7 @@
 		- JSX to Javascript는 React에서 수행되는 많은 ```transformation```들 중 하나다. 이 변형들을 옳바른 순서에 맞게 수행시킬 수 있는 ```transformation manage```가 필요한데, 대표적인 도구가 ```Webpack```이다. (npm 모듈)
 	- Webpack 설치하기
 		- Babel과 같이 development 모드에서만 동작해야 하므로 ```npm install --save-dev webpack```으로 설치한다.
-		- 설치되어야 할 2가지 추가 모듈이 더 있다. ```webpack-dev-server```와 ```html-webpack-plugin```이다.
+		- 설치되어야 할 2가지 추가 모듈이 더 있다. ```webpack-dev-server```와 ```html-webpack-plugin```이다. ```webpack-dev-server```는 개발용 서버를 동작시키기 위한 모듈이다. ```html-webpack-plugin```은 메인 html이 ```<script src="./index.js" />```와 같은 링크를 사용할텐데, ```webpack```을 거치고 나면 모든 js 코드가 build/transformed.js로 담기게 되므로 틀려진 링크를 바로 잡기 위한 모듈이다.
 	- Webpack 설정하기
 		- ```webpack.config.js``` 파일을 프로젝트 루트디렉토리에 작성해야 한다.
 		- 우선 변형해야 하는 js파일을 명시해야 하는데, outermost에 있는 React 컴포넌트를 사용하는 js파일이 해당된다. outermost 컴포넌트 아래에 있는 모든 컴포넌트들은 자동으로 변형 대상에 포함된다.
@@ -44,22 +44,52 @@
 		```javascript
 		module.exports = {
 			entry: __dirname + '/app/index.js',
-			loaders: [
-				{
-					test: /\.js$/, // 모든 js파일이 영향을 받도록 한다.
-					exclude: /node_modules/, // 많은 js파일을 포함하는 node_modules 디렉토리는 제외한다.
-					loader: 'babel-loader', // babel-loader를 사용한다.
-					output: {
-						filename: 'tansformed.js',
-						path: __dirname + '/build'
+			module: {
+				loaders: [
+					{
+						test: /\.js$/, // 모든 js파일이 영향을 받도록 한다.
+						exclude: /node_modules/, // 많은 js파일을 포함하는 node_modules 디렉토리는 제외한다.
+						loader: 'babel-loader', // babel-loader를 사용한다.
 					}
-				}
-			]
+				],
+			},
+			output: {
+				filename: 'tansformed.js',
+				path: __dirname + '/build'
+			}
 		}
 		```
 		
+# [part4.](https://www.codecademy.com/articles/react-setup-iv)
+- html-webpack-plugin
+	- html-webpack-plugin 설정하기
+		- ```webpack.config.js```에서 아래와 같이 불러온다.
+		```javascript
+		var HTMLWebpackPlugin = require('html-webpack-plugin'); // 생성자 함수
+		var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
+			template: __dirname + '/app/index.html' // html의 파일 패스
+			filename: 'index.html' // build 디렉토리에 새로 생성될 파일명
+			inject: head // head or body. <javascript> 태그가 <head> 또는 <body> 둘 중 하나에 있을 것이기 때문에 상황에 맞게 적는다.
+		});
+		module.exports = {
+			entry: __dirname + '/app/index.js',
+			module: {
+				loaders: [
+					{
+						test: /\.js$/, // 모든 js파일이 영향을 받도록 한다.
+						exclude: /node_modules/, // 많은 js파일을 포함하는 node_modules 디렉토리는 제외한다.
+						loader: 'babel-loader', // babel-loader를 사용한다.
+					}
+				],
+			},
+			output: {
+				filename: 'tansformed.js',
+				path: __dirname + '/build'
+			},
+			plugins: [
+				HTMLWebpackPluginConfig // html-webpack-plugin 설정 객체를 사용한다.
+			]
+		}
+		```
 
-
-
-[part4.](https://www.codecademy.com/articles/react-setup-iv)
-[part5.](https://www.codecademy.com/articles/react-setup-v)
+# [part5.](https://www.codecademy.com/articles/react-setup-v)
