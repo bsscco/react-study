@@ -90,8 +90,17 @@ Book.propTypes = {
 
 - Updating
 	- componenetWillReceiveProps(nextProps)
+		- props의 값을 state에 반영할 수 있다. 
 	- shouldComponentUpdate(nextProps, nextState)
 		- 업데이트 가능 여부를 return값으로 결정
-		- 
+		- props나 state가 변하지 않는다면 업데이트 할 필요가 없다.
+	- componentWillUpdate(nextProps, nextState)
+		- window 같은 Non-react 컴포넌트와 인터렉션 할 때 필요할 때 이 메소드가 적당하다.
+		- this.setState()를 사용하면 안 된다. 무한 콜백에 빠지기 때문이다.
 	- render
+	- comoponentDidUpdate(prevProps, prevState)
+	
 - Unmounting
+	- componentWillUnmount(prevProps, prevState)
+		- DOM에서 제거되기 전에 불려진다.
+		- 컴포넌트에서 해제해야 할 것이 있다면 이 메소드에서 한다.
