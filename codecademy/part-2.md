@@ -75,3 +75,23 @@ Book.propTypes = {
 ```
 
 # React Forms
+### Uncontrolled 컴포넌트에서 Controlled 컴포넌트로 만들기
+- input 태크는 입력값이라는 상태를 갖고 있기 때문에 Uncontrolled 컴포넌트이다.
+- input 태크에 value 속성을 넣어주면 스스로의 상태를 더 이상 사용하지 않기 때문에 Controlled 컴포넌트가 된다. 이러면 React-like가 된다.
+
+# Lifecyle Methods
+### 메소드 종류 
+- Mounting
+  - mount 메소드는 render 메소드가 처음 호출되는 전후에 딱 한 번만 호출된다.
+  - *componentWillMount*
+  - render
+  - *componentDidMount*
+		- AJAX API를 사용하거나 Timer를 사용하거나 외부 JS 라이브러리를 연결하는 코드를 넣기에 이곳이 적당하다.
+
+- Updating
+	- componenetWillReceiveProps(nextProps)
+	- shouldComponentUpdate(nextProps, nextState)
+		- 업데이트 가능 여부를 return값으로 결정
+		- 
+	- render
+- Unmounting
