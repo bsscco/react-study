@@ -1,0 +1,5 @@
+[part1.](https://www.codecademy.com/articles/react-setup-i)
+[part2.](https://www.codecademy.com/articles/react-setup-ii)
+[part3.](https://www.codecademy.com/articles/react-setup-iii)
+[part4.](https://www.codecademy.com/articles/react-setup-iv)
+[part5.](https://www.codecademy.com/articles/react-setup-v)
