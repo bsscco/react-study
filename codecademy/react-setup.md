@@ -93,3 +93,107 @@
 		```
 
 # [part5.](https://www.codecademy.com/articles/react-setup-v)
+- React 프로젝트 만들기
+	- 필요한 작업
+	```cli
+	npm init
+	npm i -S {react, react-dom}
+	npm i -D babel-{core, loader} babel-preset-react
+	npm i -D webpack webpack-dev-server html-webpack-plugin
+	```
+	```javascript
+	// in project-root/.babelrc
+	{
+		presets: [
+			'react'
+		]
+	}
+	```
+	```javascript
+	// in project-root/webpack.config.js
+	var HTMLWebpackPlugin = require('html-webpack-plugin'); // 생성자 함수
+	var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
+		template: __dirname + '/app/index.html' // html의 파일 패스
+		filename: 'index.html' // build 디렉토리에 새로 생성될 파일명
+		inject: head // head or body. <javascript> 태그가 <head> 또는 <body> 둘 중 하나에 있을 것이기 때문에 상황에 맞게 적는다.
+	});
+	module.exports = {
+		entry: __dirname + '/app/index.js',
+		module: {
+			loaders: [
+				{
+					test: /\.js$/, // 모든 js파일이 영향을 받도록 한다.
+					exclude: /node_modules/, // 많은 js파일을 포함하는 node_modules 디렉토리는 제외한다.
+					loader: 'babel-loader', // babel-loader를 사용한다.
+				}
+			],
+		},
+		output: {
+			filename: 'tansformed.js',
+			path: __dirname + '/build'
+		},
+		plugins: [
+			HTMLWebpackPluginConfig // html-webpack-plugin 설정 객체를 사용한다.
+		]
+	}
+	```
+	```javascript
+	// in project-root/package.js
+	...
+	scripts: {
+		"build": "webpack", // cli에서 npm run build 명령어로 빌드를 실행할 수 있다.
+		"start": "webpack-dev-server" // cli에서 npm run start 명령어로 개발서버를 실행할 수 있다.
+	}
+	...
+	```
+	```javascript
+	// in project-root/app/index.html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<metha charset="UTF-8">
+		<title>My First Local App</title>
+	</head>
+	<body>
+		<div id="app"></div>
+	</body>
+	</html>
+	```
+	```javascript	
+	// in project-root/app/index.js
+	var React = require('react');
+	var ReactDOM = require('react-dom');
+	var App = require('./components/App');
+
+	ReactDOM.render(
+		<App/>,
+		document.getElementById('app')
+	);
+	```
+	```javascript	
+	// in project-root/app/components/App.js
+	var React = require('react');
+	var ReactDOM = require('react-dom');
+	var App = require('./components/App');
+
+	ReactDOM.render(
+		<App/>,
+		document.getElementById('app')
+	);
+	bsscco:app bsscco$ ls
+	components	index.html	index.js
+	bsscco:app bsscco$ cat components/App.js 
+	var React = require('react');
+
+	var App = React.createClass({
+		render: function(){
+			return <div>Hello World!</div>;
+		}
+	});
+
+	module.exports = App;
+	```
+	
+- React 프로젝트 실행하기
+	- npm run build
+	- npm run start
