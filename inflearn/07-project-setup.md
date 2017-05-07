@@ -59,6 +59,7 @@
 	```
 
 - project-root-dir/.jshintrc
+	- Atom 에디터에서 jshint 패키지를 사용할 때 es6 문법을 사용하면 에러가 나는 것을 방지하기 위함.
 	```javascript
 	{
 		"esversion": 6
