@@ -33,7 +33,7 @@
 		devServer: {
 			hot: true, // hot loading 기능 켜기
 			inline: true, // hot loading에 사용할 client를 bundle.js에 넣어준다. 뭔 뜻임..?
-			host: '0.0.0.0'
+			host: '0.0.0.0',
 			port: 4000, 
 			contentBase: __dirname + '/public/'
 		},
