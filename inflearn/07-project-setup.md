@@ -19,7 +19,7 @@
 		- webpack-dev-server가 React 컴포넌트의 hot-loeading을 지원하지 않기 때문에 React 컴포넌트가 바뀌면 hot-loading 될 수 있도록 해주는 모듈
 		
 - project-root-dir/webpack.config.js
-	```
+	```javascript
 	var webpack = require('webpack');
 
 	module.exports = {
@@ -56,4 +56,11 @@
 			new webpack.HotModuleReplacementPlugin() // Hot loading 모듈
 		]
 	};
+	```
+
+- project-root-dir/.jshintrc
+	```javascript
+	{
+		"esversion": 6
+	}
 	```
