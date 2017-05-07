@@ -22,7 +22,8 @@
 - Mutable data
 - 초기화
 	```javascript
-	constructor() {
+	constructor(props) {
+		super(props);
 		this.state = {
 			name: "deafult name"
 		};
@@ -38,5 +39,6 @@
 	```
 - 주의 
 	- this.state = 는 절대 사용하지 말 것.
+	- 메소드는 constructor에서 bind()를 호출해주어야 this를 인식한다. 
 	
 
