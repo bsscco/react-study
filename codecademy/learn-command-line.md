@@ -20,18 +20,18 @@
 - ```echo```는 string 입력값을 standard input으로 받아들여 standard output으로
 	- ```echo "Hello"``` 
 	
-- ```>```는 standard output 내용을 파일에 redirect
+- ```>```는 왼쪽 대상의 출력 스트림 방향을 오른쪽 대상으로
 	- ```cat hello.txt > hi.txt```
 	
-- ```>>```는 standard output 내용을 파일에 append
+- ```>>```는 왼쪽 대상의 출력 스트림 방향을 오른쪽 대상으로 (append모드)
 	- ```cat hello.txt >> hi.txt```
 	
-- ```<```는 standard output을 standard input으로
+- ```<```는 왼쪽 대상의 입력 스트림 방향을 오른쪽 대상으로
 	- ```cat < hello.txt```
 	
-- ```cat```는 standard output을 standard output으로
+- ```cat```는 대상을 출력
 
-- ```|```는 왼쪽 명령어의 stadard output을 오른쪽 명령어의 standard input으로 넣어준다.
+- ```|```는 왼쪽 명령어의 출력을 오른쪽 명령어의 입력으로 넣어준다.
 	- ```cat volcanoes.txt | wc | cat > islands.txt```는 cat --> wc --> cat --> > 으로 넘어간다.
 	
 - 기타 명령어	
