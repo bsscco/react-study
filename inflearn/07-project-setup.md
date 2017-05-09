@@ -42,7 +42,7 @@
 			loaders: [
 				{
 					test: /\.js$/, // js로 변경할 대상 파일들
-					loader: 'babel', // 사용할 로더
+					loader: 'babel-loader', // 사용할 로더
 					exclude: /node_modules/, // node_modules 디렉토리는 js로만 이루어져있고 양이 많기 때문에 제외시킴.
 					query: {
 						cacheDirectory: true,
@@ -74,13 +74,45 @@
 	```
 
 - HotModuleReplacementPlugin을 적용하기
-	```
+	```javascript
 	// in index.js
 	...
 	
 	if(module.hot){
-	  module.hot.accept();
+		module.hot.accept();
 	}
 	```
 	- 태그의 content를 바꾸면 핫로딩이 되지만 state값들도 전부 초기화 되어버린다. 이것이 단점.
-	- 
+	- 해결 방법은 react-hot-loader를 webpack에 적용하는 것이다.
+	- 먼저 index.js에서 핫로딩을 위해 추가했던 부분을 지운다.
+	```javascript
+	// in index.js
+	...
+	
+	//if(module.hot){
+	//	module.hot.accept();
+	//}
+	```
+	```javascript
+	// in webpack.config.js
+	...
+	
+	module: {
+			loaders: [
+				{
+					test: /\.js$/,
+					loaders: ['react-hot', 'babel-loader?' + JSON.stringify({
+						cacheDirectory: true,
+						presets: ['es2015', 'react']
+					})], // 이전 코드 -> loader: 'babel-loader', // 사용할 로더
+					exclude: /node_modules/,
+					//query: { 기존 query를 react-hot, babel-loader 모두에게 적용되게 하면 에러가 나기 때문에 babel-loader쪽으로 빼준다.
+					//	cacheDirectory: true,
+					//	presets: ['es2015', 'react']
+					//}
+				}
+			]
+		},
+	
+	...
+	```
