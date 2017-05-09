@@ -25,7 +25,7 @@
 - Presentational : Stateless와 같다. 또한 rendering에 대한 아주 단순한 로직만 갖는다.
 
 # Stateless Functional 컴포넌트
-### render 메소드만 가지는 컴포넌트(보통 stateless 컴포넌트)는 하나의 함수로 정의할 수 있습니다.
+### render 메소드만 가지는 컴포넌트(보통 stateless 컴포넌트)는 하나의 함수로 정의할 수 있다.
 ```javascript
 var Friend = React.createClass({
   render: function () {
