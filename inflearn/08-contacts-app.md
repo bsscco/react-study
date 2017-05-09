@@ -1,5 +1,5 @@
 ### 검색 기능이 담긴 코드
-```javascripot
+```javascript
 export default class Contact extends React.Component {
   constructor(props) {
         super(props);
