@@ -1,3 +1,7 @@
+### 링크
+- [영상](https://youtu.be/l5bt79f4aHs)
+- [문서](http://slides.com/minjunkim-1/deck#/14/1)
+
 ### 검색 기능이 담긴 코드
 ```javascript
 export default class Contact extends React.Component {
