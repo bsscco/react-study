@@ -20,7 +20,7 @@
 		- JSX를 Javascript로 컴파일 하는 Javascript 컴파일러이다. ```transformation```들 중 하나다. (npm 모듈)
 	- Babel 설치하기
 		- ```Babel```의 npm 모듈 이름은 ```babel-core```
-		- react, react-dom과 달리 ```npm install --save-dev babel-core```로 설치한다. -dev옵션이 포함되는 것이 비교되는 점이다. production에서는 이 변형이 필요하지 않기 때문이다.
+		- react, react-dom과 달리 ```npm install --save-dev babel-core```로 설치한다. -dev옵션이 포함되는 것이 비교되는 점이다. production에서는 이미 변형된 코드만 가지고 사용하기 때문에 production 시점에서는 이 변형이 필요하지 않다. 따라서 개발 시에만 사용하기 위해 설치 옵션에 -dev를 붙인다.
 		- 설치되어야 할 2가지 모듈이 더 있다. ```babel-loader```와 ```babel-preset-react```이다. ```babel-loader```는 아래에서 설명할 Webpack에 ```Babel```을 올리기 위한 모듈이다. ```babel-preset-react```는 ```Babel```에서 React 프리셋을 사용하게 하기 위한 모듈이다.
 	- Babel 설정하기
 		- Babel configuration 파일(```.babelrc```)을 프로젝트 루트디렉토리에 작성해야 한다. 내용은 ```{presets: ["react"]}```을 넣는다.
