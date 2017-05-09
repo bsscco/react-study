@@ -18,6 +18,7 @@
 	- react-hot-loader
 		- webpack-dev-server가 React 컴포넌트의 hot-loeading을 지원하지 않기 때문에 React 컴포넌트가 바뀌면 hot-loading 될 수 있도록 해주는 모듈
 		
+### 프로젝트 설정
 - project-root-dir/webpack.config.js
 	```javascript
 	var webpack = require('webpack');
