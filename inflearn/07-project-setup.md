@@ -101,7 +101,7 @@
 			loaders: [
 				{
 					test: /\.js$/,
-					loaders: ['react-hot', 'babel-loader?' + JSON.stringify({
+					loaders: ['react-hot', 'babel-loader?' + JSON.stringify({ // 'react-hot', 'babel-loader' 순서 유지 중요
 						cacheDirectory: true,
 						presets: ['es2015', 'react']
 					})], // 이전 코드 -> loader: 'babel-loader', // 사용할 로더
