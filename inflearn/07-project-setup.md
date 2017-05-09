@@ -72,3 +72,15 @@
 		"dev-server": "webpack-dev-server" // webpack-dev-server를 직접 입력해서 실행하지 않는 이유는 만약, 프로젝트 루트 디렉토리가 아니라 src디렉토리 같은 곳에서 실행했을 때 이상하게 동작하기 떄문. 테스트 서버는 프로젝트 루트 디렉토리에서 실행되어야 webpack.config.js를 읽을 수 있다. 실행 스크립트로 테스트 서버를 실행하면 루트 디렉토리 기준으로 실행되기 때문에 정상 동작.
 	}
 	```
+
+- HotModuleReplacementPlugin을 적용하기
+	```
+	// in index.js
+	...
+	
+	if(module.hot){
+	  module.hot.accept();
+	}
+	```
+	- 태그의 content를 바꾸면 핫로딩이 되지만 state값들도 전부 초기화 되어버린다. 이것이 단점.
+	- 
