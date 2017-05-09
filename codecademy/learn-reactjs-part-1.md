@@ -89,7 +89,14 @@
 
 - props 네이밍 컨벤션
 	- 이벤트 핸들러는 handle*EventType*으로 짓는다. ex) handleClick, handleKeyPress
-	- prop은 on*EventType*으로 짓는다. ex) onClick, onPress
+	- 핸들러를 prop으로 넘길 때는 on*EventType*으로 짓는다. ex) onClick, onPress
+	```javascript
+	<MyComponent onClick={this.state.handleClick} />
+	
+	// 위는 부모 컴포넌트, 아래는 자식 컴포넌트
+	
+	<button onClick={this.props.onClick} />
+	```
 - defalt props
 	```javascript
 	getDefaultProps: function () {
