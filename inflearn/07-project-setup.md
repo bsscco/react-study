@@ -105,7 +105,7 @@
 						cacheDirectory: true,
 						presets: ['es2015', 'react']
 					})], // 이전 코드 -> loader: 'babel-loader', // 사용할 로더
-					exclude: /node_modules/,
+					exclude: /node_modules/
 					//query: { 기존 query를 react-hot, babel-loader 모두에게 적용되게 하면 에러가 나기 때문에 babel-loader쪽으로 빼준다.
 					//	cacheDirectory: true,
 					//	presets: ['es2015', 'react']
