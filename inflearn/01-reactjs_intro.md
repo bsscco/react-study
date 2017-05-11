@@ -12,7 +12,7 @@
 	- 둘은 서로 협력관계
 	
 ### 장점과 단점
-- [소개 영상](https://www.youtube.com/watch?v=BYbgopx44vo)
+- [소개 애니메이션 영상](https://www.youtube.com/watch?v=BYbgopx44vo)
 - 장점
 	- React는 ```Component```라는 개념만 사용해서 단순하고 이해하기 쉽다.
 	- ```서버사이드 렌더링```과 ```클라이언트 렌더링```을 둘 다 지원한다. 
