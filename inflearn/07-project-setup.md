@@ -118,3 +118,9 @@
 	...
 	```
 	- 이제부터는 코드를 수정할 때 constructor가 호출되지 않기 때문에 constructor 안에 있는 코드를 수정했다면 브라우저에서 새로고침을 해줘야 반영이 된다.
+
+### 개발서버 실행
+```cli
+cd project-root
+npm run dev-server #만약 webpack.config.js에서 hot, post값을 설정하지 않았다면 --hot --host 0.0.0.0" 붙여서 실행해도 됨.
+```
