@@ -109,15 +109,17 @@ Book.propTypes = {
 # Lifecyle Methods
 ### 메소드 종류 
 - Mounting
-  - mount 메소드는 render 메소드가 처음 호출되는 전후에 딱 한 번만 호출된다.
+  - mounting 메소드는 render 메소드가 처음 호출되는 전후에 딱 한 번만 호출된다.
   - *componentWillMount*
   - render
   - *componentDidMount*
 		- AJAX API를 사용하거나 Timer를 사용하거나 외부 JS 라이브러리를 연결하는 코드를 넣기에 이곳이 적당하다.
 
 - Updating
+	- updating 메소드는 컴포넌트가 생성될 때는 호출되지 않고, props, state값이 바뀔 때만 호출된다.
 	- componenetWillReceiveProps(nextProps)
 		- props의 값을 state에 반영할 수 있다. 
+		- nextProps의 값에 따라 리렌더링 하기 위한 state를 setState 할 수 있다.
 	- shouldComponentUpdate(nextProps, nextState)
 		- 업데이트 가능 여부를 return값으로 결정
 		- props나 state가 변하지 않는다면 업데이트 할 필요가 없다.
