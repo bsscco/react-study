@@ -86,6 +86,9 @@ var Book = React.createClass(
 ```
 ### 주의사항
 - 기대하는 타입이 아니거나 isRequired인데 값이 없으면 콘솔에 경고메시지가 뜬다.
+- 15.5버전부터 이 기능이 라이브러로 빠짐.
+- ```npm install --save prop-types```
+- ```var PropTypes = require('prop-types');```
 
 ### Stateless Functional 컴포넌트에서 PropTypes 쓰기
 ```javascript
