@@ -4,6 +4,30 @@
 - Stateless : getInitialState()를 가지지 않는 컴포넌트
 - Stateful 컴포넌트는 Stateless 컴포넌트에게 state를 넘겨준다. 넘겨받은 state는 Stateless 컴포넌트에겐 props다.
 
+### Automatic binding
+- Automatic binding이 없으면?
+```javascript
+var Parent = React.createClass({
+	getInitialState: fuction() {
+		return {value:''};
+	},
+	handleChange: function(e) {
+		thi.setState({ // 만약 React가 automatic binding을 지원하지 않는다면 this는 호출한 객체를 가리키므로 this는 Chlid를 가리켰을 것이다. 이것 매우 중요.
+			value: 'new val'
+		});
+	},
+	render: function() {
+		return <Child onClick={this.handleClick} />;
+	}
+});
+var Child = React.createClass({
+	render: function() {
+		return <button onClick={this.props.onClick}>button</button>;
+	}
+});
+
+```
+
 # React 컴포넌트에 Style 적용하기
 ### inline style 사용 예
 - ```<MyComponent style={{backgroundColor: 'red'}}```
