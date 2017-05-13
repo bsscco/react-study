@@ -20,13 +20,13 @@
 		contactData: update(this.state.contactData, {$push: [ contact ]/*배열 형태로*/});
 	});
   ```
-  - 제거하기
+	- 제거하기
 	```javascript
 	this.setState({
 		contactData: update(this.state.contactData, {$splice: [ [this.state.selectedKey, 1] ]/*배열 형태로*/})
 	});	
 	```
-  - 수정하기
+	- 수정하기
 	```javascript
 	this.setState({
 		contactData: update(this.state.contactData, 
