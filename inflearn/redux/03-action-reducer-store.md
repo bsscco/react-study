@@ -26,7 +26,12 @@
 		- index.js #root reducer
 	- index.js #store creator
 	
-- View component에서 이벤트 발생 -> Controller component는 Action creator로 Action을 생성해서 Store로 전달 -> Store는 적절한 Reducer를 찾아 Action을 전달 -> Reducer는 수정된 새 State를 반환 -> Store는 기존 State를 새 State로 변경하고 관련 View component를 re-rendering
+- 흐름
+	- View component에서 이벤트 발생 -> 
+	- Controller component는 Action creator로 Action을 생성해서 Store로 전달 -> 
+	- Store는 적절한 Reducer를 찾아 Action을 전달 -> 
+	- Reducer는 수정된 새 State를 반환 -> 
+	- Store는 기존 State를 새 State로 변경하고 관련 View component를 re-rendering
 
 
 ### 기타 참고
