@@ -1,3 +1,5 @@
+# Flux와 Redux
+
 ### React Flux
 - 추상적인 개념
 - [Flux 로의 카툰안내서](http://bestalign.github.io/2015/10/06/cartoon-guide-to-flux/)
