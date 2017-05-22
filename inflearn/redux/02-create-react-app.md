@@ -32,6 +32,3 @@
 	- Atom-Snippets 메뉴를 클릭해서 스니펫 코드를 넣고 저장한다.
 	
 - [Airbnb의 React 컨벤션 가이드 한글](https://github.com/apple77y/javascript/tree/master/react)
-
-### 구조 셋팅
-- 
