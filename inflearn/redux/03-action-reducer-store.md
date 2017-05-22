@@ -45,7 +45,3 @@
 
 - 참고
 	- aaa 디렉토리에 index.js를 만들고 그 파일 안에 bbb를 export로 정의했다면 ```import bbb from './aaa'```와 같이 bbb에 접근할 수 있다. ```import bbb from './aaa/index'```로 하지 않아도 된다는 뜻.
-	
-### react-redux
-- View layer binding을 지원해준다.
-- 앱 루트 컴포넌트를 ```<Provider>``` 컴포넌트로 감싼다.
