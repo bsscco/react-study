@@ -8,7 +8,7 @@
 	- 다른 작업이 필요한 경우엔 또 다른 ```library```와 조합한다.
 	- 대표적으로 React
 - 기타
-	- ```Ranglur Native```에서 ```React Native```를 사용하기로 함.
+	- ```Anglur Native```에서 ```React Native```를 사용하기로 함.
 	- 둘은 서로 협력관계
 	
 ### 장점과 단점
