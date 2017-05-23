@@ -15,7 +15,7 @@
 
 ### ATOM
 - IDE
-	- +react 패키지, +jslint 패키지
+	- +react 패키지, +jshint 패키지
 - 기타 무료 IDE
 	- VSCODE(+React Plugin)
 - 기타 무료 웹 IDE
