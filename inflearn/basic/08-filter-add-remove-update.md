@@ -5,7 +5,7 @@
 - 도구
 	- immutable.js를 사용한다.
 	- React에서는 immutable.js를 적용한 ```Immutable Helper```를 사용한다.
-	- 또 다른 도구로는 ES6의 ```spread 문법```이 있다. 지금은 ```Immutable Helper```를 사용한다.
+	- 또 다른 도구로는 ES7의 ```spread 문법```이 있다. 지금은 ```Immutable Helper```를 사용한다.
 
 - 설치
 ```npm install --save react-addons-update```
