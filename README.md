@@ -1,5 +1,5 @@
 # 소개
-- React 스터디 내용을 정리한다.
+- React 스터디 정리
 
 # 참고
 - [공홈 영문](https://facebook.github.io/react/docs/installation.html#trying-out-react)
