@@ -5,9 +5,9 @@
 
 ### NODE, NPN
 - NODE
-  - js 서버 개발 환경
+	- 웹브라우저가 아닌 환경에서도 JS를 돌릴 수 있게 해주는 JS 런타임 환경
 - NPN
-  - Node js 패키지 관리
+	- Node js 패키지 관리
   
 ### MONGO
 - NoSQL DB
