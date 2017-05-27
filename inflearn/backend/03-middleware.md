@@ -49,6 +49,7 @@
 		});
 		```
 	- API 테스트
+		![body-parser](https://github.com/bsscco/react-study/blob/master/inflearn/backend/03-body-parser.png)
 		
 
 - 팁
