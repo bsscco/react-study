@@ -20,12 +20,12 @@
 	- create-react-app을 통해 만든 프로젝트는 eslint가 적용되어있으므로 아톰 에디터에서도 lint를 보려면 linter-eslint 패키지를 설치해준다.
 	- 이제 jshint는 꺼준다.
 	- Lint Javascript on the fly, using ESLint
-	![eslint-package](https://github.com/bsscco/react-study/blob/master/inflearn/redux/02-eshint-packages.png)	
+	![eslint-package](https://github.com/bsscco/react-study/blob/master/inflearn/redux/blob/02-eshint-packages.png)	
 	- react 패키지도 깔아주면 좋다.
 	- React.js(JSX) language support, indentation, snippets, auto completion, reformatting
-	![react-package](https://github.com/bsscco/react-study/blob/master/inflearn/redux/02-react-package.png	)
+	![react-package](https://github.com/bsscco/react-study/blob/master/inflearn/redux/blob/02-react-package.png	)
 	- 패키지 Setting에서 ```Enabled For All Javascript Files```를 활성화해주어야 .jsx 파일 말고도 .js 파일도 문법 지원을 받을 수 있다.
-	![react-package-settings](https://github.com/bsscco/react-study/blob/master/inflearn/redux/02-react-package-settings.png)
+	![react-package-settings](https://github.com/bsscco/react-study/blob/master/inflearn/redux/blob/02-react-package-settings.png)
 
 - 아톰 에디터 스니펫 설정
 	- [동영상에서 쓰인 스니펫 코드](https://gist.github.com/velopert/8f22cf0830e65f6de8ae99808c5b92f5)
