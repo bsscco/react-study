@@ -33,10 +33,23 @@
 	
 - body-parser
 	- json형태의 데이터를 파싱하는 미들웨어 사용하기
-	```javascript
-	var bodyParser = require('body-parser');
-	app.use(bodyParser.json());
-	```
+	- main.js
+		```javascript
+		var bodyParser = require('body-parser');
+		app.use(bodyParser.json());
+		```
+	- user.js
+		```javascript
+		router.post('/', function(req, res) {
+		  console.log(JSON.stringify(req.body, null, 2)); // 서버쪽 터미널에 로깅한다. body-parser 덕에 req.body로 접근할 수 있다.
+		  res.json({
+		    success: true,
+		    user: req.body.username
+		  });
+		});
+		```
+	- API 테스트
+		
 
 - 팁
 	- 미들웨어 설명이 나와있는 github 페이지 바로가기
