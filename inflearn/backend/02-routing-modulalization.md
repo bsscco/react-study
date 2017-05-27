@@ -35,33 +35,33 @@
 - API 테스팅 도구
 	- 크롭 확장 프로그램 postman을 설치
 	
-- 모듈화 하기
-	- 프로젝트 루트에서 routes 디렉토리를 만듭니다.
-	- routes 디렉토리에서 user.js 파일을 만듭니다.
-		```javascript
-		var express = require('express');
-		var router = express.Router();
+### 모듈화 하기
+- 프로젝트 루트에서 routes 디렉토리를 만듭니다.
+- routes 디렉토리에서 user.js 파일을 만듭니다.
+	```javascript
+	var express = require('express');
+	var router = express.Router();
 
-		router.get('/:id', function(req, res){ // app.get에서 router.get으로, /user/:id에서 /:id로 변경했다.
-			res.send('Received a GET request, param:' + req.params.id);
-		});
+	router.get('/:id', function(req, res){ // app.get에서 router.get으로, /user/:id에서 /:id로 변경했다.
+		res.send('Received a GET request, param:' + req.params.id);
+	});
 
-		router.post('/', function(req, res) { // app.post에서 router.post로, /user에서 /로 변경했다.
-			res.json({success: true});
-		});
+	router.post('/', function(req, res) { // app.post에서 router.post로, /user에서 /로 변경했다.
+		res.json({success: true});
+	});
 
-		router.put('/', function(req, res) {
-			res.status(400).json({message: 'Hey, You. Bad Request!'});
-		});
+	router.put('/', function(req, res) {
+		res.status(400).json({message: 'Hey, You. Bad Request!'});
+	});
 
-		router.delete('/', function(req, res) {
-			res.send('Received a DELETE request');
-		});
-		```
-	- main.js에서 user.js를 불러와서 app에 연결한다.
-		```javascript
-		var user = require('./routes/user');
+	router.delete('/', function(req, res) {
+		res.send('Received a DELETE request');
+	});
+	```
+- main.js에서 user.js를 불러와서 app에 연결한다.
+	```javascript
+	var user = require('./routes/user');
 
-		app.use('/user', user);
-		```
-	
+	app.use('/user', user);
+	```
+
