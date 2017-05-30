@@ -11,11 +11,11 @@
 
 ### 모델링
 - 관계지향형 모델링
-  - Comment Table
-  - Post Table
-  - Tag Table
+	- Comment Table
+	- Post Table
+	- Tag Table
 - 문서지향형 모델링
-  - Post { Comments, Tags }
+	- Post { Comments, Tags }
   
 ### 설치
 - [맥에 설치하기](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
