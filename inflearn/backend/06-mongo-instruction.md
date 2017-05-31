@@ -32,13 +32,13 @@
 - ```db.member.remove({'name': 'bsscco'})```
 - 첫번째 인자 criteria에 만족하는 document가 여러 개일 때 하나만 제거하고 싶으면 ```db.member.remove({'name': 'bsscco'}, true)```를 실행한다. 두번 째 인자 justOne은 기본값이 false이다.
 
-### document 보기
+### document 조건으로 찾기
 - ```db.member.find()```는 member collection의 모든 document를 찾아준다.
 - ```db.member.find().pretty()```는 document 하나하나가 값이 많아서 보기 안 좋을 때 document마다 multi-line으로 보여준다.
 - query를 주려면 ```db.member.find({'name': 'one'})```으로 입력한다.
 
 - query에 비교 연산자 사용하기
-	- ```db.number.find({'value', {$gt: 0, $lt:100, $nin: [12, 33]}})
+	- ```db.number.find({'value', {$gt: 0, $lt:100, $nin: [12, 33]}})```
 - query 비교 연산자
 	- $eq : 같다.
 	- $neq : 같지 않다.
@@ -50,12 +50,35 @@
 	- #nin : 배열 속에 없다.
 
 - query에 논리 연산자 사용하기
-	- ```db.post.find({$and: [{'title': 'good title'}, {'order', {$gt: 10}}]})
+	- ```db.post.find({$and: [{'title': 'good title'}, {'order', {$gt: 10}}]})```
 - query 논리 연산자
 	- $and
 	- $or
 	- $not : 조건이 false이면 true, true이면 false
 	- $nor : 모든 조건이 false일 때 true
 
+- query에 정규표현식 사용하기
+	- ```db.post.find('title': /^bs.+co$/i``` i는 대소문자 무시라는 뜻.
+- query 정규표현식 옵션
+	- i : 대소문자 무시
+	- m : ^를 사용할 때 \n이 있다면 무력화
+	- x : 정규식 안에 있는 whitespace를 모두 무시
+	- s : .을 사용할 때 \n을 포함해서 매치
+	
+- query에 javascript표현식 사용하기
+	- ```db.post.find({$where: this.comments.length == 0'})```
+	
+- query에서 subdocument에 조건 걸기
+	- ```db.post.find({'comments': {$elemMatch: {'name': 'bsscco'}}})```
+	
+### document 찾은 결과에서 필요한 element만 뽑
+- projection 하기
+	- ```db.posts.find({}, {'_id':false, 'title':true})```
 
-### 
+- projection에서 subdocument에 limit 정하기
+	- ```db.posts.find({}, {'comments': {$slice: 1}})```
+
+- projection에서 subdocument에 조건 걸기
+	- ```db.posts.find({}, {'comments': {$elemMatch: {'name': 'bsscco'}}})```
+	
+### document 찾은 결과 가공하기
