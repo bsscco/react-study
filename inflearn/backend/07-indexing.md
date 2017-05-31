@@ -1,1 +1,1 @@
-### [설명 링크](https://velopert.com/560)
+### [텍스트 강좌](https://velopert.com/560)
