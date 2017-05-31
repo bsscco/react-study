@@ -37,8 +37,7 @@
 - ```db.member.find().pretty()```는 document 하나하나가 값이 많아서 보기 안 좋을 때 document마다 multi-line으로 보여준다.
 - query를 주려면 ```db.member.find({'name': 'one'})```으로 입력한다.
 
-- query에 비교 연산자 사용하기
-	- ```db.number.find({'value', {$gt: 0, $lt:100, $nin: [12, 33]}})```
+- query에 비교 연산자 사용하기 ```db.number.find({'value', {$gt: 0, $lt:100, $nin: [12, 33]}})```
 - query 비교 연산자
 	- $eq : 같다.
 	- $neq : 같지 않다.
@@ -49,36 +48,46 @@
 	- $in : 배열 속에 있다.
 	- #nin : 배열 속에 없다.
 
-- query에 논리 연산자 사용하기
-	- ```db.post.find({$and: [{'title': 'good title'}, {'order', {$gt: 10}}]})```
+- query에 논리 연산자 사용하기 ```db.post.find({$and: [{'title': 'good title'}, {'order', {$gt: 10}}]})```
 - query 논리 연산자
 	- $and
 	- $or
 	- $not : 조건이 false이면 true, true이면 false
 	- $nor : 모든 조건이 false일 때 true
 
-- query에 정규표현식 사용하기
-	- ```db.post.find('title': /^bs.+co$/i``` i는 대소문자 무시라는 뜻.
+- query에 정규표현식 사용하기 ```db.post.find('title': /^bs.+co$/i``` i는 대소문자 무시라는 뜻.
 - query 정규표현식 옵션
 	- i : 대소문자 무시
 	- m : ^를 사용할 때 \n이 있다면 무력화
 	- x : 정규식 안에 있는 whitespace를 모두 무시
 	- s : .을 사용할 때 \n을 포함해서 매치
 	
-- query에 javascript표현식 사용하기
-	- ```db.post.find({$where: this.comments.length == 0'})```
+- query에 javascript표현식 사용하기 ```db.post.find({$where: this.comments.length == 0'})```
+- query에서 subdocument에 조건 걸기 ```db.post.find({'comments': {$elemMatch: {'name': 'bsscco'}}})```
 	
-- query에서 subdocument에 조건 걸기
-	- ```db.post.find({'comments': {$elemMatch: {'name': 'bsscco'}}})```
-	
-### document 찾은 결과에서 필요한 element만 뽑
-- projection 하기
-	- ```db.posts.find({}, {'_id':false, 'title':true})```
-
-- projection에서 subdocument에 limit 정하기
-	- ```db.posts.find({}, {'comments': {$slice: 1}})```
-
-- projection에서 subdocument에 조건 걸기
-	- ```db.posts.find({}, {'comments': {$elemMatch: {'name': 'bsscco'}}})```
+### document 찾은 결과에서 필요한 element만 뽑기
+- projection 하기 ```db.posts.find({}, {'_id':false, 'title':true})```
+- projection에서 subdocument에 limit 정하기 ```db.posts.find({}, {'comments': {$slice: 1}})```
+- projection에서 subdocument에 조건 걸기 ```db.posts.find({}, {'comments': {$elemMatch: {'name': 'bsscco'}}})```
 	
 ### document 찾은 결과 가공하기
+- 정렬하기 ```db.posts.find().sort({name : 1})``` 1은 오름차순, -1은 내림차순
+- limit 정하기 ```db.posts.find().sort({name : 1}).limit(3)```
+- 앞에서 skip 하기 ```db.posts.find().sort({name : 1}).skip(2)```
+
+### 팁
+- mongo db는 javascript 기반이라서 자주 쓰는 쿼리는 함수로 만들어서 사용할 수도 있다.
+	- ```var showPage = function(page) {return db.numbers.find().sort({'value':1}).skip((page-1)*5).limit(5)}``` 5개씩 보여준다.
+
+### document 수정
+- field 수정하기 ```db.members.update({'name': 'bsscco'}, {$set: {age: 20}})```
+- document 대체하기 ```db.members.update({'name': 'bsscco'}, {'name': 'bsscco2', 'age': 21})```
+- field 제거하기 ```db.members.update({'name': 'bsscco'}, {$unset: {'age': 1}})``` ```{'age': 1}```에서 1이 있는 자리엔 어떤 값을 넣어도 상관 없음.
+- document가 없으면 추가해서 field 수정 ```db.members.update({'name': 'newName'}, {$set: {'name': 'newName', 'age': 10}}, {upsert: true})```
+
+### 배열 field 수정
+- 값 추가하기 ```db.member.update({'name': 'bsscco'}, {$push: {'habits': 'baseball'}})```
+- 여러 개 값 추가하기 ```db.member.update({'name': 'bsscco'}, {$push: {''habits': {$each: ['baseball', 'basketball']}}})```
+- 여러 개 값 추가해서 정렬시키기  ```db.member.update({'name': 'bsscco'}, {$push: {''habits': {$each: ['baseball', 'basketball'], $sort: 1}}})```
+- 값 제거하기 ```db.member.update({'name': 'bsscco'}, {$pull: {'habits': 'baseball'}})```
+- 여러 개 값 제거하기  ```db.member.update({'name': 'bsscco'}, {$pull: {''habits': {$in: ['baseball', 'basketball']}}})```
