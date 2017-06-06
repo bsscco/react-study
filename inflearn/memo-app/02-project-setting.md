@@ -8,13 +8,16 @@ git checkout step00 #첫번재 브랜치로 전환
 
 ### 프로젝트 내에 라이브러리 설치
 ```cli
-npm install #프로젝트에 필요한 클라이언트쪽 npm 모듈들을 설치합니다. (babel-core, babel-loader, babel-preset-es2015, babel-preset-react, react, react-dom, react-hot-loader, webpack, webpack-dev-server, babel-polyfill)
+npm install #프로젝트에 필요한 클라이언트쪽 npm 모듈들을 설치합니다. (babel-core, babel-loader, babel-preset-es2015, babel-preset-react, react, react-dom, react-hot-loader, webpack, webpack-dev-server)
+
+npm install --save babel-polyfill #프로젝트에 필요한 클라이언트쪽 npm 모듈을 설치합니다.
 
 npm install --save-dev style-loader css-loader #개발서버쪽 모듈들을 설치합니다.
 
 npm install --save express path body-parser morgan mongoose express-session bcryptjs axios react-addons-update react-router react-timeago redux react-redux redux-thunk react-addons-css-transition-group #개발+제품서버쪽 npm 모듈들을 설치합니다.
 ```
-- 클라이언트쪽 
+- 클라이언트쪽 모듈 목록
+	- 
 
 - 개발서버쪽 모듈 목록
 	- style-loader
