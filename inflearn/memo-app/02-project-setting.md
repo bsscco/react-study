@@ -87,32 +87,6 @@ sudo npm install -g babel-cli nodemon cross-env
 - cross-env
 	- 윈도우 / 리눅스 / OSX 에서 환경변수값을 설정합니다.
 
-### 서버 코드 작성
-- project-root/main.js
-	```javascript
-  import WebpackDevServer from 'webpack-dev-server';
-  import webpack from 'webpack';
-
-  const devPort = 4000;
-
-  /*
-      Express Codes 
-  */
-
-
-  if(process.env.NODE_ENV == 'development') {
-      console.log('Server is running on development mode');
-      const config = require('../webpack.dev.config');
-      const compiler = webpack(config);
-      const devServer = new WebpackDevServer(compiler, config.devServer);
-      devServer.listen(
-          devPort, () => {
-              console.log('webpack-dev-server is listening on port', devPort);
-          }
-      );
-  }
-	```
-  
 ### 명령어 스크립트 셋팅
 - project-root/package.json
 	```javascript
