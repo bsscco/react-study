@@ -116,106 +116,143 @@ sudo npm install -g babel-cli nodemon cross-env
 ### 명령어 스크립트 셋팅
 - project-root/package.json
 	```javascript
-  "clean": "rm -rf build public/bundle.js",
-  "build": "babel server --out-dir build --presets=es2015 && webpack",
-  "start": "cross-env NODE_ENV=production node ./build/main.js",
-  "development": "cross-env NODE_ENV=development nodemon --exec babel-node --presets=es2015 ./server/main.js --watch server"
+	"clean": "rm -rf build public/bundle.js",
+	"build": "babel server --out-dir build --presets=es2015 && webpack",
+	"start": "cross-env NODE_ENV=production node ./build/main.js",
+	"development": "cross-env NODE_ENV=development nodemon --exec babel-node --presets=es2015 ./server/main.js --watch server"
 	```
   
 ### 개발서버 설정 파일 셋팅
 - project-root/webpack.dev.config.js
 	```javascript
-  var webpack = require('webpack');
-  
-  module.exports = {
+  	var path = require('path');
+	var webpack = require('webpack');
 
-      /* webpack-dev-server를 콘솔이 아닌 자바스크립트로 실행 할 땐, 
-      HotReloadingModule 를 사용하기 위해선 dev-server 클라이언트와 
-      핫 모듈을 따로 entry 에 넣어주어야 합니다. */
+	module.exports = {
+	    entry: [
+		'babel-polyfill',
+		'./src/index.js',
+		'./src/style.css'
+	    ],
 
-      entry: [
-          './src/index.js',
-          'webpack-dev-server/client?http://0.0.0.0:4000', // 개발서버의 포트가 이 부분에 입력되어야 제대로 작동합니다
-          'webpack/hot/only-dev-server'
-      ],
+	    output: {
+		path: __dirname + '/public/',
+		filename: 'bundle.js'
+	    },
 
-      output: {
-          path: '/', // public 이 아니고 /, 이렇게 하면 파일을 메모리에 저장하고 사용합니다
-          filename: 'bundle.js'
-      },
+	    module: {
+		loaders: [
+		    {
+			test: /\.js$/,
+			loaders: ['babel?' + JSON.stringify({
+			    cacheDirectory: true,
+			    presets: ['es2015', 'react']
+			})],
+			exclude: /node_modules/,
+		    },
+		    {
+			test: /\.css$/,
+			loader: 'style!css-loader'
+		    }
+		]
+	    },
 
-      // 개발서버 설정입니다
-      devServer: {
-          hot: true,
-          filename: 'bundle.js',
-          publicPath: '/',
-          historyApiFallback: true,
-          contentBase: './public',
-          /* 모든 요청을 프록시로 돌려서 express의 응답을 받아오며,
-          bundle 파일의 경우엔 우선권을 가져서 devserver 의 스크립트를 사용하게 됩니다 */
-          proxy: {
-              "**": "http://localhost:3000" // express 서버주소
-          },
-          stats: {
-            // 콘솔 로그를 최소화 합니다
-            assets: false,
-            colors: true,
-            version: false,
-            hash: false,
-            timings: false,
-            chunks: false,
-            chunkModules: false
-          }
-      },
+	    resolve: {
+		root: path.resolve('./src')
+	    },
 
+	    plugins:[
+		new webpack.DefinePlugin({
+		  'process.env':{
+		    'NODE_ENV': JSON.stringify('production')
+		  }
+		}),
+		new webpack.optimize.UglifyJsPlugin({
+		  compress:{
+		    warnings: true
+		  }
+		})
+	    ]
 
-      plugins: [
-          new webpack.optimize.OccurenceOrderPlugin(),
-          new webpack.HotModuleReplacementPlugin(),
-          new webpack.NoErrorsPlugin()
-      ],
+	};
 
-      module: {
-          loaders: [
-              {
-                  test: /\.js$/,
-                  loaders: ['react-hot', 'babel?' + JSON.stringify({
-                      cacheDirectory: true,
-                      presets: ['es2015', 'react']
-                  })],
-                  exclude: /node_modules/,
-              }
-          ]
-      }
-
-
-  };
 	```
   
 ### 제품 서버 설정 파일 셋팅
 - project-root/webpack.config.js
 	```javascript
-  module.exports = {
-      entry: './src/index.js',
+  	var webpack = require('webpack');
+	var path = require('path');
 
-      output: {
-          path: __dirname + '/public/',
-          filename: 'bundle.js'
-      },
+	module.exports = {
 
-      module: {
-          loaders: [
-              {
-                  test: /\.js$/,
-                  loaders: ['babel?' + JSON.stringify({
-                      cacheDirectory: true,
-                      presets: ['es2015', 'react']
-                  })],
-                  exclude: /node_modules/,
-              }
-          ]
-      }
-  };
+	    entry: [
+		'babel-polyfill',
+		'./src/index.js',
+		'webpack-dev-server/client?http://0.0.0.0:4000',
+		'webpack/hot/only-dev-server',
+		'./src/style.css'
+	    ],
+
+	    output: {
+		path: '/',
+		filename: 'bundle.js'
+	    },
+
+	    devServer: {
+		hot: true,
+		filename: 'bundle.js',
+		publicPath: '/',
+		historyApiFallback: true,
+		contentBase: './public',
+		proxy: {
+		    "**": "http://localhost:3000"
+		},
+		stats: {
+		  // Config for minimal console.log mess.
+		  assets: false,
+		  colors: true,
+		  version: false,
+		  hash: false,
+		  timings: false,
+		  chunks: false,
+		  chunkModules: false
+		}
+	    },
+
+
+	    plugins: [
+		new webpack.HotModuleReplacementPlugin()
+	    ],
+
+	    module: {
+		loaders: [
+		    {
+			test: /\.js$/,
+			loaders: ['react-hot', 'babel?' + JSON.stringify({
+			    cacheDirectory: true,
+			    presets: ['es2015', 'react']
+			})],
+			exclude: /node_modules/,
+		    },
+		    {
+			test: /\.css$/,
+			loader: 'style!css-loader'
+		    }
+		]
+	    },
+
+	    resolve: {
+		root: path.resolve('./src')
+	    }
+
+
+	};
 	```
   
-### 
+### git에서 무시할 파일 목록 셋팅
+- projec-root/.gitignore
+	```
+	node_modules
+	.jshintrc
+	```
