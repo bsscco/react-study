@@ -59,7 +59,7 @@ npm install --save express path body-parser morgan mongoose express-session bcry
 		- express 세션 관련 **미들웨어**
 	- bcryptjs
 		- 비번 같은 데이터의 암호화를 위한 해쉬 모듈
-  - axios
+  	- axios
 		- HTTP 클라이언트
 	- react-addons-update
 		- immutable helper
