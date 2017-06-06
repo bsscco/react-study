@@ -10,14 +10,33 @@ git checkout step00 #첫번재 브랜치로 전환
 ```cli
 npm install #프로젝트에 필요한 클라이언트쪽 npm 모듈들을 설치합니다. (babel-core, babel-loader, babel-preset-es2015, babel-preset-react, react, react-dom, react-hot-loader, webpack, webpack-dev-server)
 
-npm install --save babel-polyfill #프로젝트에 필요한 클라이언트쪽 npm 모듈을 설치합니다.
+npm install --save babel-polyfill #클라이언트쪽 모듈을 추가 설치합니다.
 
 npm install --save-dev style-loader css-loader #개발서버쪽 모듈들을 설치합니다.
 
 npm install --save express path body-parser morgan mongoose express-session bcryptjs axios react-addons-update react-router react-timeago redux react-redux redux-thunk react-addons-css-transition-group #개발+제품서버쪽 npm 모듈들을 설치합니다.
 ```
 - 클라이언트쪽 모듈 목록
-	- 
+	- babel-core
+		- jsx를 js로 변환해주는 transform 
+	- babel-loader
+		- babel을 webpack에 올려주는 로더
+	- babel-preset-es2015
+		- babel이 사용하는 es6 프리셋
+	- babel-preset-react
+		- babel이 사용하는 react 프리셋
+	- react
+		- react
+	- react-dom
+		- react가 dom을 사용할 수 있게 해줍니다.
+	- react-hot-loader
+		- react 코드가 수정되면 서버에 바로 갱신될 수 있게 해줍니다.
+	- webpack
+		- babel 같은 transform들을 한데 모아 동작시키고, 결과물을 하나의 js파일에 모아줍니다.
+	- webpack-dev-server
+		- webpack이 지원하는 개발용 서버
+	- babel-polyfill
+		- es6문법을 이전 버전으로 변환해줍니다.
 
 - 개발서버쪽 모듈 목록
 	- style-loader
