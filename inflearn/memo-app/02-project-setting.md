@@ -152,7 +152,7 @@ sudo npm install -g babel-cli nodemon cross-env
 
 	```
   
-### 제품 서버 설정 파일 셋팅
+### 제품서버 설정 파일 셋팅
 - project-root/webpack.config.js
 	```javascript
   	var webpack = require('webpack');
