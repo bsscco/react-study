@@ -17,33 +17,29 @@
 	- m으로 시작하면서 .txt로 끝나는 모든 파일들만 dest-path로 복사한다.
 	
 # Redirection
-- ```echo```는 string 입력값을 standard input으로 받아들여 standard output으로
-	- ```echo "Hello"``` 
-	
-- ```>```는 왼쪽 대상의 출력 스트림 방향을 오른쪽 대상으로
+- ```>```는 왼쪽 명령의 출력 스트림을 오른쪽 파일로
 	- ```cat hello.txt > hi.txt```
 	
-- ```>>```는 왼쪽 대상의 출력 스트림 방향을 오른쪽 대상으로 (append모드)
+- ```>>```는 왼쪽 명령의 출력 스트림을 오른쪽 파일로 **(append모드)**
 	- ```cat hello.txt >> hi.txt```
 	
-- ```<```는 왼쪽 대상의 입력 스트림 방향을 오른쪽 대상으로
+- ```<```는 왼쪽 명령의 입력 스트림을 오른쪽 파일로
 	- ```cat < hello.txt```
-	
-- ```cat```는 파일을 출력
 
+# Pipe
 - ```|```는 왼쪽 명령어의 출력을 오른쪽 명령어의 입력으로 넣어준다.
 	- ```cat volcanoes.txt | wc | cat > islands.txt```는 cat --> wc --> cat --> > 으로 넘어간다.
 	
-- 기타 명령어	
-	- ```sort```는 파일 내용을 정렬해서 standard output
-	- ```uniq```는 파일 내용 중 중복 line 제거해서 standard output
-	- ```grep```은 파일 내용 중 포함하는 line들을 standard output
-		- ```-i``` 옵션은 대소문자를 구별하지 않게
-		- ```-R``` 옵션은 Recursive. 디렉토리 안에 있는 모든 파일을 대상으로 검색해서 해당하는 파일들만 standard output
-		- ```-Rl``` 옵션은 ```-R```에서 파일 이름만 stadard output
-	- ```sed```는 파일 내용 중 일치하는 단어를 replace하고 해당하는 line들만 standard output
-		- ```sed 's/snow/rain/'```은 해당하는 line 마다 처음 snow만 rain으로 replace
-		- ```sed 's/snow/rain/g'```는 모든 snow를 rain으로 replace
+# 기타 명령어	
+- ```sort```는 파일 내용을 정렬해서 standard output
+- ```uniq```는 파일 내용 중 중복 line 제거해서 standard output
+- ```grep```은 파일 내용 중 포함하는 line들을 standard output
+	- ```-i``` 옵션은 대소문자를 구별하지 않게
+	- ```-R``` 옵션은 Recursive. 디렉토리 안에 있는 모든 파일을 대상으로 검색해서 해당하는 파일들만 standard output
+	- ```-Rl``` 옵션은 ```-R```에서 파일 이름만 stadard output
+- ```sed```는 파일 내용 중 일치하는 단어를 replace하고 해당하는 line들만 standard output
+	- ```sed 's/snow/rain/'```은 해당하는 line 마다 처음 snow만 rain으로 replace
+	- ```sed 's/snow/rain/g'```는 모든 snow를 rain으로 replace
 		
 # Environmemt
 - 환경설정 수정하기
